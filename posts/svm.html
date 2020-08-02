@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html><head>
-<title>Programming</title>
+<title>SVM</title>
 
 <meta charset="utf-8">
 <meta name="X-UA-Compatible" content="IE=edge">
@@ -14,29 +14,29 @@
 
 
 
-<script src="/vendor/js/jquery.min.js" ></script>
-<script src="/vendor/js/popper.min.js" ></script>
-<script src="/vendor/js/bootstrap.min.js" ></script>
-<script src="/vendor/js/smooth-scroll.polyfills.min.js" ></script>
-<link type="text/css" rel="stylesheet" href="/vendor/css/bootstrap.min.css">
-<script src="/vendor/js/vue.min.js" ></script>
+<script src="../vendor/js/jquery.min.js" ></script>
+<script src="../vendor/js/popper.min.js" ></script>
+<script src="../vendor/js/bootstrap.min.js" ></script>
+<script src="../vendor/js/smooth-scroll.polyfills.min.js" ></script>
+<link type="text/css" rel="stylesheet" href="../vendor/css/bootstrap.min.css">
+<script src="../vendor/js/vue.min.js" ></script>
 
 
 
 
-<link rel="stylesheet" href="/scss/journal.min.47aa1ffb60880ad8c72feecd6962a14331eca7a7a30e08354a1ca91009b8bc5b.css" integrity="sha256-R6of&#43;2CICtjHL&#43;7NaWKhQzHsp6ejDgg1ShypEAm4vFs=" media="screen">
+<link rel="stylesheet" href="https://www.evanescere.xyz/scss/journal.min.47aa1ffb60880ad8c72feecd6962a14331eca7a7a30e08354a1ca91009b8bc5b.css" integrity="sha256-R6of&#43;2CICtjHL&#43;7NaWKhQzHsp6ejDgg1ShypEAm4vFs=" media="screen">
 
 
 
-<link rel="stylesheet" href="/scss/dark-mode.min.b13808e7c98cd5aa981a3822fd3421e26f1015876bb15a3fbf8ed5991c382367.css" integrity="sha256-sTgI58mM1aqYGjgi/TQh4m8QFYdrsVo/v47VmRw4I2c=" media="screen">
+<link rel="stylesheet" href="https://www.evanescere.xyz/scss/dark-mode.min.b13808e7c98cd5aa981a3822fd3421e26f1015876bb15a3fbf8ed5991c382367.css" integrity="sha256-sTgI58mM1aqYGjgi/TQh4m8QFYdrsVo/v47VmRw4I2c=" media="screen">
 
 
-<script src="/js/loadCSS.js"></script>
+<script src="https://www.evanescere.xyz//js/loadCSS.js"></script>
 <script>
   loadCSS("https://fonts.googleapis.com/css?family=Lora|Montserrat|Fira+Mono|Noto+Serif+SC|Material+Icons");
 </script>
 
-<script src="/js/table.js"></script>
+<script src="https://www.evanescere.xyz//js/table.js"></script>
 
 
   
@@ -79,13 +79,27 @@ color: #515151;
 
 
 
-<style>
-  .toc{
-    display: none !important;
+<script src="https://www.evanescere.xyz//js/toc.js"></script>
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="../vendor/js/md5.min.js"></script>
+<script>
+  var gitalk = new Gitalk({
+  clientID: 'your client id',
+  clientSecret: 'your client secret',
+  repo: 'repo name',
+  owner: 'user',
+  admin: ['user'],
+  id: md5(location.pathname),
+  distractionFreeMode: 'false'
+  });
+  window.onload = function () {
+        gitalk.render('gitalk-container')
   }
-</style>
-
-
+</script>
 
 
 
@@ -98,7 +112,7 @@ color: #515151;
 <body>
     	<div id="app"><div ref="sideContainer" class="side-container">
     
-    <a class="a-block nav-head false" href="">
+    <a class="a-block nav-head false" href="https://www.evanescere.xyz/">
     
         <div class="nav-title">
             evanescere
@@ -116,9 +130,11 @@ color: #515151;
             
             
             
+                
             
             
-            <a class="a-block nav-link-item false" href="/posts">
+            
+            <a class="a-block nav-link-item active" href="../posts">
                 Archive
             </a>
             
@@ -126,11 +142,9 @@ color: #515151;
             
             
             
-                
             
             
-            
-            <a class="a-block nav-link-item active" href="/categories">
+            <a class="a-block nav-link-item false" href="../categories">
                 Categories
             </a>
             
@@ -140,7 +154,7 @@ color: #515151;
             
             
             
-            <a class="a-block nav-link-item false" href="/tags">
+            <a class="a-block nav-link-item false" href="../tags">
                 Tags
             </a>
             
@@ -166,6 +180,89 @@ powered by <a href="https://github.com/gohugoio/hugo/" target="_blank" rel="nore
 </div><div ref="extraContainer" class="extra-container">
     
     
+    <div class="toc animated-visibility" :class="{ invisible: scrollY <= 140 }">
+
+
+	<div class="toc-content">
+	
+		
+		
+		
+		<center>- CATALOG -</center>
+			
+				
+				
+					
+						
+						
+							<ul>
+						
+							<ul>
+						
+						
+								<li>
+				 					<a href="#%e7%ba%bf%e6%80%a7%e6%83%85%e5%86%b5" v-on:click="closeDrawer" id="线性情况-nav">
+										 线性情况
+									</a>
+								</li>
+						
+							</ul>
+						
+							</ul>
+						
+					
+				
+			
+				
+				
+					
+						
+						
+							<ul>
+						
+							<ul>
+						
+						
+								<li>
+				 					<a href="#%e9%9d%9e%e7%ba%bf%e6%80%a7%e6%83%85%e5%86%b5" v-on:click="closeDrawer" id="非线性情况-nav">
+										 非线性情况
+									</a>
+								</li>
+						
+							</ul>
+						
+							</ul>
+						
+					
+				
+			
+				
+				
+					
+						
+						
+							<ul>
+						
+							<ul>
+						
+						
+								<li>
+				 					<a href="#%e7%ad%89%e5%bc%8f%e4%b8%8e%e4%b8%8d%e7%ad%89%e5%bc%8f%e7%ba%a6%e6%9d%9f%e4%bc%98%e5%8c%96" v-on:click="closeDrawer" id="等式与不等式约束优化-nav">
+										 等式与不等式约束优化
+									</a>
+								</li>
+						
+							</ul>
+						
+							</ul>
+						
+					
+				
+			
+	</div>
+
+</div>
+    
     <div class="pagination">
         <a id="globalBackToTop" class="pagination-action animated-visibility" href="#top" :class="{ invisible: scrollY == 0 }">
             <i class="material-icons pagination-action-icon">
@@ -183,8 +280,6 @@ powered by <a href="https://github.com/gohugoio/hugo/" target="_blank" rel="nore
         </a>
         
         
-        
-        
     </div>
 </div><div class="single-column-drawer-container" ref="drawer"
      v-bind:class="{ 'single-column-drawer-container-active': isDrawerOpen }">
@@ -196,9 +291,11 @@ powered by <a href="https://github.com/gohugoio/hugo/" target="_blank" rel="nore
                 
                 
                 
+                    
                 
                 
-                <a class="a-block drawer-menu-item false" href="/posts">
+                
+                <a class="a-block drawer-menu-item active" href="../posts">
                     Archive
                 </a>
                 
@@ -206,11 +303,9 @@ powered by <a href="https://github.com/gohugoio/hugo/" target="_blank" rel="nore
                 
                 
                 
-                    
                 
                 
-                
-                <a class="a-block drawer-menu-item active" href="/categories">
+                <a class="a-block drawer-menu-item false" href="../categories">
                     Categories
                 </a>
                 
@@ -220,11 +315,94 @@ powered by <a href="https://github.com/gohugoio/hugo/" target="_blank" rel="nore
                 
                 
                 
-                <a class="a-block drawer-menu-item false" href="/tags">
+                <a class="a-block drawer-menu-item false" href="../tags">
                     Tags
                 </a>
                 
             
+            
+            <div class="toc">
+
+
+	<div class="toc-content">
+	
+		
+		
+		
+		<center>- CATALOG -</center>
+			
+				
+				
+					
+						
+						
+							<ul>
+						
+							<ul>
+						
+						
+								<li>
+				 					<a href="#%e7%ba%bf%e6%80%a7%e6%83%85%e5%86%b5" v-on:click="closeDrawer" id="线性情况-nav">
+										 线性情况
+									</a>
+								</li>
+						
+							</ul>
+						
+							</ul>
+						
+					
+				
+			
+				
+				
+					
+						
+						
+							<ul>
+						
+							<ul>
+						
+						
+								<li>
+				 					<a href="#%e9%9d%9e%e7%ba%bf%e6%80%a7%e6%83%85%e5%86%b5" v-on:click="closeDrawer" id="非线性情况-nav">
+										 非线性情况
+									</a>
+								</li>
+						
+							</ul>
+						
+							</ul>
+						
+					
+				
+			
+				
+				
+					
+						
+						
+							<ul>
+						
+							<ul>
+						
+						
+								<li>
+				 					<a href="#%e7%ad%89%e5%bc%8f%e4%b8%8e%e4%b8%8d%e7%ad%89%e5%bc%8f%e7%ba%a6%e6%9d%9f%e4%bc%98%e5%8c%96" v-on:click="closeDrawer" id="等式与不等式约束优化-nav">
+										 等式与不等式约束优化
+									</a>
+								</li>
+						
+							</ul>
+						
+							</ul>
+						
+					
+				
+			
+	</div>
+
+</div>
             
         </div>
     </div>
@@ -240,7 +418,7 @@ powered by <a href="https://github.com/gohugoio/hugo/" target="_blank" rel="nore
                 menu
             </i>
         </button>
-        <a ref="navTitle" class="navbar-brand" href="">
+        <a ref="navTitle" class="navbar-brand" href="https://www.evanescere.xyz/">
             evanescere
         </a>
         
@@ -257,7 +435,7 @@ powered by <a href="https://github.com/gohugoio/hugo/" target="_blank" rel="nore
 </nav>
 <div class="single-column-header-container" ref="pageHead"
      v-bind:style="{ transform: 'translateZ(0px) translateY('+.3*scrollY+'px)', opacity: 1-navOpacity }">
-    <a href="">
+    <a href="https://www.evanescere.xyz/">
         <div class="single-column-header-title">evanescere</div>
         
         <div class="single-column-header-subtitle">have fun</div>
@@ -268,41 +446,129 @@ powered by <a href="https://github.com/gohugoio/hugo/" target="_blank" rel="nore
             <div id="content">
 <div ref="streamContainer" class="stream-container">
     <div class="post-list-container post-list-container-shadow">
-        <div class="post-item-wrapper post-item-wrapper-no-hover">
-            <div class="post-item post-item-no-gaps">
-                <div class="post-item-info-wrapper">
-                    <div class="post-item-title  post-item-title-small">
-                        <a href="/">evanescere</a> / Programming
+        <div class="post">
+            
+            
+            
+
+            <div class="post-head-wrapper-text-only"
+                
+            >
+                <div class="post-title">
+                    SVM
+                    
+                    <div class="post-meta">
+                        
+                        <time itemprop="datePublished">
+                            2020-08-02 15:05
+                        </time>
+                        
+
+                        
+
+                        
+                        
                     </div>
                 </div>
             </div>
-        </div><a href="/posts/new-test/" class="a-block">
-            <div class="post-item-wrapper">
-                <div class="post-item post-item-no-gaps">
-                    <div class="post-item-info-wrapper">
-                        <div class="post-item-title">
-                            New post test
-                        </div>
-                        <div class="post-item-meta">
-    2020-08-01
-    &emsp;
-    
-    
-    
-    &emsp;
-    
-</div>
+            
+            <div class="post-body-wrapper">
+                <div class="post-body">
+                    <h2 id="线性情况">线性情况</h2>
+<p>将SVM转换成二次凸优化问题
+\[\begin{aligned}
+&amp; \underset{x}{\text{minimize}}
+&amp; &amp; \frac{ \lVert{w}\rVert^2 }{2} \\\<br>
+&amp; \text{subject to}
+&amp; &amp; y_i(w^T\cdot x_i+b)\geq 1,;i = 1, \ldots, n.
+\end{aligned}
+\]
+通过拉格朗日对偶性Lagrange Duality变换到对偶变量dual_ variable的优化问题，即通过求解与原问题等价的对偶问题（dual problem）得到原始问题的最优解，这就是线性可分条件下支持向量机的对偶算法，这样做的优点在于：一者对偶问题往往更容易求解；二者可以自然的引入核函数，进而推广到非线性分类问题。
+通过拉格朗日函数将约束条件融合到目标函数里去:
+\[L(w,b,\alpha)=\frac{1}{2}\lVert{w}\rVert^2 - \sum_{i=1}^{n}\alpha_i(y_i(w^T\cdot x_i+b)-1)\]
+其中\(\alpha_i\geq 0\),然后问题就变成了
+\[\min_{w,b}\max_{\alpha_i\geq 0}L(w,b,\alpha)\]
+由于kkt条件成立,原凸规划问题可以转化为先对w和b求偏导，令其等于0消掉w和b，然后再对α求L的最大值。
+$$\begin{cases}
+\frac{\partial L}{\partial w}=0 <!-- raw HTML omitted -->
+\frac{\partial L}{\partial b}=0 <!-- raw HTML omitted -->
+\end{cases}⇒</p>
+<p>\begin{cases}
+w=\sum_{i=1}^n \alpha_i y_i x_i \\\<br>
+\sum_{i=1}^n \alpha_i y_i=0 \\\<br>
+\end{cases}</p>
+<p>$$
+将其代入L中可得：</p>
+<p>\[\begin{aligned}
+L(w,b,\alpha)&amp;=\frac{1}{2}\lVert{w}\rVert^2 - \sum_{i=1}^{n}\alpha_i(y_i(w^T\cdot x_i+b)-1)\\\<br>
+&amp;=\frac{1}{2}w^Tw-w^T\sum_{i=1}^{n}\alpha_iy_iw^Tx_i-\sum_{i=1}^{n}\alpha_iy_ib+\sum_{i=1}^{n}\alpha_i\\\<br>
+&amp;=\frac{1}{2}w^T\sum_{i=1}^{n}\alpha_iy_ix_i-w^T\sum_{i=1}^{n}\alpha_iy_ix_i-b\sum_{i=1}^{n}\alpha_iy_i+\sum_{i=1}^{n}\alpha_i\\\<br>
+&amp;=-\frac{1}{2}\sum_{i=1}^{n}\alpha_iy_i(x_i)^T\sum_{i=1}^{n}\alpha_iy_i(x_i)-b\sum_{i=1}^{n}\alpha_iy_i+\sum_{i=1}^{n}\alpha_i\\\<br>
+&amp;=-\frac{1}{2}\sum_{i=1,j=1}^{n}\alpha_iy_i(x_i)^T\alpha_jy_jx_j+\sum_{i=1}^{n}\alpha_i\\\<br>
+\end{aligned}
+\]
+其中由于$α_i$和$y_i$都是实数，因此转置后与自身一样。此时的拉格朗日函数只包含了一个变量，那就是$α_i$。所以对偶问题为：
+\[\begin{aligned}
+&amp; \underset{\alpha}{\text{max}}
+&amp; &amp; \sum_{i=1}^{n}\alpha_i-\frac{1}{2}\sum_{i=1,j=1}^{n}\alpha_i\alpha_jy_iy_j(x_i)^Tx_j\\\<br>
+&amp; \text{subject to}
+&amp; &amp; \alpha_i\geq 0,;i = 1, \ldots, n.\\\<br>
+&amp; &amp; &amp;\sum_{i=1}^n \alpha_i y_i=0
+\end{aligned}
+\]
+这样，求出了$α_i$，即可求出w和b</p>
+<h2 id="非线性情况">非线性情况</h2>
+<p>对于一个数据点 x 进行分类，实际上是通过把 x 带入到\(f(x)=w^Tx+b\),由于$w=∑<!-- raw HTML omitted -->i=1<!-- raw HTML omitted -->^n α_i y_i x_i$，因此分类函数为：
+\[\begin{aligned}
+f(x)&amp;=(\sum_{i=1}^{n}\alpha_iy_ix_i)^Tx+b\\\<br>
+&amp;=\sum_{i=1}^{n}\alpha_iy_ixx_i^T+b
+\end{aligned}
+\]</p>
+<h2 id="等式与不等式约束优化">等式与不等式约束优化</h2>
+<p>1、无约束优化问题，常常使用的方法就是Fermat定理，即使用求取f(x)的导数，然后令其为零，可以求得候选最优值，再在这些候选值中验证；如果是凸函数，可以保证是最优解。
+2、对于有等式约束的优化问题，常常使用的方法就是拉格朗日乘子法（Lagrange Multiplier) ，即把等式约束h_i(x)用一个系数与f(x)写为一个式子，称为拉格朗日函数，而系数称为拉格朗日乘子。通过拉格朗日函数对各个变量求导，令其为零，可以求得候选值集合，然后验证求得最优值。
+3、有不等式约束的优化问题，使用的方法就是KKT条件。同样地，我们把所有的等式、不等式约束与f(x)写为一个式子，也叫拉格朗日函数，系数也称拉格朗日乘子，通过一些条件，可以求出最优值的必要条件，这个条件称为KKT条件。</p>
+<p>在一个nonlinear program中，要想取到optimum，一定要满足Fritz John Condition（通过Gordon&rsquo; Theorem得到）。而通过添加一些constraint qualification，可以推导出一旦满足Kuhn Tucker Condition则一定取到optimum。KKT语言描述就是objective function的gradient是所有constraint的gradient的线性组合。</p>
 
-                    </div>
+                    
+                    <HR width="100%" id="EOF">
+		    <p style="color:#777;">Last modified on 2020-08-02</p>
+                    
                 </div>
             </div>
-        </a></div>
-</div>
+            
+            
+            <nav class="post-pagination">
+
+                
+                <a class="newer-posts">
+			Next<br>No newer posts.
+                </a>
+                
+                
+                
+                <a class="older-posts" href="https://www.evanescere.xyz/posts/en-essay.html">
+			Previous<br>Argumentative Essay Structure
+                </a>
+                
+            </nav>
+            <div class="post-comment-wrapper">
+                
+
+
+<div id="gitalk-container"></div>
+
+
+
+
+
 
             </div>
+        </div>
+    </div>
+</div>
 
-
-<div id="single-column-footer">
+            </div><div id="single-column-footer">
 written with org-mode and <a href="https://github.com/kaushalmodi/ox-hugo">ox-hugo</a>
 <br>
 powered by <a href="https://github.com/gohugoio/hugo/" target="_blank" rel="noreferrer noopener">HUGO.</a> <br>
@@ -414,6 +680,6 @@ app = new Vue({
 });
 </script>
 
-<script src="/js/journal.js"></script>
+<script src="https://www.evanescere.xyz//js/journal.js"></script>
     </body>
 </html>

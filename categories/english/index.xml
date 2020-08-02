@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>English on evanescere</title>
-    <link>http://example.org/categories/english/</link>
+    <link>https://www.evanescere.xyz/categories/english.html</link>
     <description>Recent content in English on evanescere</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>This is a customized copyright.</copyright>
     <lastBuildDate>Sat, 01 Aug 2020 22:14:00 +0800</lastBuildDate>
     
-	<atom:link href="http://example.org/categories/english/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://www.evanescere.xyz/categories/english/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Argumentative Essay Structure</title>
-      <link>http://example.org/posts/en-essay/</link>
+      <link>https://www.evanescere.xyz/posts/en-essay.html</link>
       <pubDate>Sat, 01 Aug 2020 22:14:00 +0800</pubDate>
       
-      <guid>http://example.org/posts/en-essay/</guid>
+      <guid>https://www.evanescere.xyz/posts/en-essay.html</guid>
       <description>Introduction 结构 Introduction 第一段，3句左右
  General description：总体描述，1句 Details 1, 2, 3：细节描述（挖掘细节词，串联成句），1句 Caption/Symbolic meaning：文字说明或象征寓意，1句  Body 第二段，意义阐释，5句左右
  Topic sentence：Symbolic meaning，主题句，象征寓意，1句（首段尾句写了象征意义，就换个说话再来一遍，不来也挺好） Argument：论证，3句左右，考研写作四大论证手段：Cause and Effect：因果论证、Exemplification：举例论证、联系现实，列数据：以小见大，把握象征寓意，个体想为群体，具体想为抽象（4）正反论证 Summary：小结，概括论证，总结本段，1句  Conclusion 第三段，归纳结论/建议措施，4句左右

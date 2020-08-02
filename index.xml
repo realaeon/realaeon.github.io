@@ -1,24 +1,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>evanescere</title>
-    <link>http://example.org/</link>
+    <link>https://www.evanescere.xyz/</link>
     <description>Recent content on evanescere</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>This is a customized copyright.</copyright>
     <lastBuildDate>Sun, 02 Aug 2020 15:05:00 +0800</lastBuildDate>
     
-        <atom:link href="http://example.org/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="https://www.evanescere.xyz/index.xml" rel="self" type="application/rss+xml" />
     
     
     
         <item>
         <title>SVM</title>
-        <link>http://example.org/posts/svm/</link>
+        <link>https://www.evanescere.xyz/posts/svm.html</link>
         <pubDate>Sun, 02 Aug 2020 15:05:00 +0800</pubDate>
         
-        <guid>http://example.org/posts/svm/</guid>
-        <description>evanescere http://example.org/posts/svm/ -&lt;h2 id=&#34;线性情况&#34;&gt;线性情况&lt;/h2&gt;
+        <guid>https://www.evanescere.xyz/posts/svm.html</guid>
+        <description>evanescere https://www.evanescere.xyz/posts/svm.html -&lt;h2 id=&#34;线性情况&#34;&gt;线性情况&lt;/h2&gt;
 &lt;p&gt;将SVM转换成二次凸优化问题
 \[\begin{aligned}
 &amp;amp; \underset{x}{\text{minimize}}
@@ -73,18 +73,18 @@ f(x)&amp;amp;=(\sum_{i=1}^{n}\alpha_iy_ix_i)^Tx+b\\\&lt;br&gt;
 2、对于有等式约束的优化问题，常常使用的方法就是拉格朗日乘子法（Lagrange Multiplier) ，即把等式约束h_i(x)用一个系数与f(x)写为一个式子，称为拉格朗日函数，而系数称为拉格朗日乘子。通过拉格朗日函数对各个变量求导，令其为零，可以求得候选值集合，然后验证求得最优值。
 3、有不等式约束的优化问题，使用的方法就是KKT条件。同样地，我们把所有的等式、不等式约束与f(x)写为一个式子，也叫拉格朗日函数，系数也称拉格朗日乘子，通过一些条件，可以求出最优值的必要条件，这个条件称为KKT条件。&lt;/p&gt;
 &lt;p&gt;在一个nonlinear program中，要想取到optimum，一定要满足Fritz John Condition（通过Gordon&amp;rsquo; Theorem得到）。而通过添加一些constraint qualification，可以推导出一旦满足Kuhn Tucker Condition则一定取到optimum。KKT语言描述就是objective function的gradient是所有constraint的gradient的线性组合。&lt;/p&gt;
-- http://example.org/posts/svm/ - This is a customized copyright.</description>
+- https://www.evanescere.xyz/posts/svm.html - This is a customized copyright.</description>
         </item>
     
     
     
         <item>
         <title>Argumentative Essay Structure</title>
-        <link>http://example.org/posts/en-essay/</link>
+        <link>https://www.evanescere.xyz/posts/en-essay.html</link>
         <pubDate>Sat, 01 Aug 2020 22:14:00 +0800</pubDate>
         
-        <guid>http://example.org/posts/en-essay/</guid>
-        <description>evanescere http://example.org/posts/en-essay/ -&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+        <guid>https://www.evanescere.xyz/posts/en-essay.html</guid>
+        <description>evanescere https://www.evanescere.xyz/posts/en-essay.html -&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
 &lt;h3 id=&#34;结构&#34;&gt;结构&lt;/h3&gt;
 &lt;h4 id=&#34;introduction&#34;&gt;Introduction&lt;/h4&gt;
 &lt;p&gt;第一段，3句左右&lt;/p&gt;
@@ -246,18 +246,18 @@ broaden their scope of knowledge
 &lt;li&gt;虚拟语气：It is high time that we improved the present situation.&lt;/li&gt;
 &lt;li&gt;There be/ With&lt;/li&gt;
 &lt;/ul&gt;
-- http://example.org/posts/en-essay/ - This is a customized copyright.</description>
+- https://www.evanescere.xyz/posts/en-essay.html - This is a customized copyright.</description>
         </item>
     
     
     
         <item>
         <title>New post test</title>
-        <link>http://example.org/posts/new-test/</link>
+        <link>https://www.evanescere.xyz/posts/new-test.html</link>
         <pubDate>Sat, 01 Aug 2020 21:39:00 +0800</pubDate>
         
-        <guid>http://example.org/posts/new-test/</guid>
-        <description>evanescere http://example.org/posts/new-test/ -&lt;p&gt;This is a test post.&lt;/p&gt;
+        <guid>https://www.evanescere.xyz/posts/new-test.html</guid>
+        <description>evanescere https://www.evanescere.xyz/posts/new-test.html -&lt;p&gt;This is a test post.&lt;/p&gt;
 &lt;h2 id=&#34;intro&#34;&gt;intro&lt;/h2&gt;
 &lt;p&gt;introintrointrointro距离上次更新(v1.6.2)已经过去了5个月，很抱歉2.0版本来得这么晚。本来想着在18年12月（PicGo一周年的时候）发布2.0版本，但是无奈正值研究生开题期间，需要花费不少时间（不然毕不了业了T T），所以这个大版本姗姗来迟。不过从这个版本开始，正式支持插件系统，发挥你们的无限想象，PicGo也能成为一个极致的效率工具。除了发布PicGo 2.0本体，一同发布的还有PicGo-Core（PicGo 2.0的底层，支持CLI和API调用），以及VSCode的PicGo插件vs-picgo等。
 距离上次更新(v1.6.2)已经过去了5个月，很抱歉2.0版本来得这么晚。本来想着在18年12月（PicGo一周年的时候）发布2.0版本，但是无奈正值研究生开题期间，需要花费不少时间（不然毕不了业了T T），所以这个大版本姗姗来迟。不过从这个版本开始，正式支持插件系统，发挥你们的无限想象，PicGo也能成为一个极致的效率工具。除了发布PicGo 2.0本体，一同发布的还有PicGo-Core（PicGo 2.0的底层，支持CLI和API调用），以及VSCode的PicGo插件vs-picgo等。&lt;/p&gt;
@@ -281,7 +281,7 @@ Input一般是文件路径，经过Transformer读取信息，传入Uploader进�
 Input一般是文件路径，经过Transformer读取信息，传入Uploader进行上传，最后通过 Output 输出结果。而插件可以接入三个生命周期（beforeTransform、beforeUpload、afterUpload）以及两种部件（Transformer和Uploader）。换句话说，如果你书写了合适的Uploader，那么可以上传到不同的图床。如果你书写了合适的Transformer，你可以通过URL先行下载文件再通过Uploader上传等等。另外，如果你不想下载PicGo的electron版本，也可以通过npm安装picgo来实现命令行一键上传图片的快速体验。PicGo除了PicGo-Core提供的核心功能之外，额外给GUI插件给予一些自主控制权。比如插件可以拥有自己的菜单项：
 Input一般是文件路径，经过Transformer读取信息，传入Uploader进行上传，最后通过 Output 输出结果。而插件可以接入三个生命周期（beforeTransform、beforeUpload、afterUpload）以及两种部件（Transformer和Uploader）。换句话说，如果你书写了合适的Uploader，那么可以上传到不同的图床。如果你书写了合适的Transformer，你可以通过URL先行下载文件再通过Uploader上传等等。另外，如果你不想下载PicGo的electron版本，也可以通过npm安装picgo来实现命令行一键上传图片的快速体验。PicGo除了PicGo-Core提供的核心功能之外，额外给GUI插件给予一些自主控制权。比如插件可以拥有自己的菜单项：
 Input一般是文件路径，经过Transformer读取信息，传入Uploader进行上传，最后通过 Output 输出结果。而插件可以接入三个生命周期（beforeTransform、beforeUpload、afterUpload）以及两种部件（Transformer和Uploader）。换句话说，如果你书写了合适的Uploader，那么可以上传到不同的图床。如果你书写了合适的Transformer，你可以通过URL先行下载文件再通过Uploader上传等等。另外，如果你不想下载PicGo的electron版本，也可以通过npm安装picgo来实现命令行一键上传图片的快速体验。PicGo除了PicGo-Core提供的核心功能之外，额外给GUI插件给予一些自主控制权。比如插件可以拥有自己的菜单项：&lt;/p&gt;
-- http://example.org/posts/new-test/ - This is a customized copyright.</description>
+- https://www.evanescere.xyz/posts/new-test.html - This is a customized copyright.</description>
         </item>
     
     

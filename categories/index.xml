@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on evanescere</title>
-    <link>http://example.org/categories/</link>
+    <link>https://www.evanescere.xyz/categories.html</link>
     <description>Recent content in Categories on evanescere</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>This is a customized copyright.</copyright>
     <lastBuildDate>Sat, 01 Aug 2020 22:14:00 +0800</lastBuildDate>
     
-	<atom:link href="http://example.org/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://www.evanescere.xyz/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>English</title>
-      <link>http://example.org/categories/english/</link>
+      <link>https://www.evanescere.xyz/categories/english.html</link>
       <pubDate>Sat, 01 Aug 2020 22:14:00 +0800</pubDate>
       
-      <guid>http://example.org/categories/english/</guid>
+      <guid>https://www.evanescere.xyz/categories/english.html</guid>
       <description></description>
     </item>
     
     <item>
       <title>Programming</title>
-      <link>http://example.org/categories/programming/</link>
+      <link>https://www.evanescere.xyz/categories/programming.html</link>
       <pubDate>Sat, 01 Aug 2020 21:39:00 +0800</pubDate>
       
-      <guid>http://example.org/categories/programming/</guid>
+      <guid>https://www.evanescere.xyz/categories/programming.html</guid>
       <description></description>
     </item>
     

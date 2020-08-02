@@ -3,62 +3,62 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://example.org/</loc>
+    <loc>https://www.evanescere.xyz/</loc>
     <lastmod>2020-08-02T15:05:00+08:00</lastmod>
   </url>
   
   <url>
-    <loc>http://example.org/posts/</loc>
+    <loc>https://www.evanescere.xyz/posts.html</loc>
     <lastmod>2020-08-02T15:05:00+08:00</lastmod>
   </url>
   
   <url>
-    <loc>http://example.org/posts/svm/</loc>
+    <loc>https://www.evanescere.xyz/posts/svm.html</loc>
     <lastmod>2020-08-02T15:05:00+08:00</lastmod>
   </url>
   
   <url>
-    <loc>http://example.org/posts/en-essay/</loc>
+    <loc>https://www.evanescere.xyz/posts/en-essay.html</loc>
     <lastmod>2020-08-01T22:14:00+08:00</lastmod>
   </url>
   
   <url>
-    <loc>http://example.org/categories/</loc>
+    <loc>https://www.evanescere.xyz/categories.html</loc>
     <lastmod>2020-08-01T22:14:00+08:00</lastmod>
   </url>
   
   <url>
-    <loc>http://example.org/categories/english/</loc>
+    <loc>https://www.evanescere.xyz/categories/english.html</loc>
     <lastmod>2020-08-01T22:14:00+08:00</lastmod>
   </url>
   
   <url>
-    <loc>http://example.org/tags/essay/</loc>
+    <loc>https://www.evanescere.xyz/tags/essay.html</loc>
     <lastmod>2020-08-01T22:14:00+08:00</lastmod>
   </url>
   
   <url>
-    <loc>http://example.org/tags/personal/</loc>
+    <loc>https://www.evanescere.xyz/tags/personal.html</loc>
     <lastmod>2020-08-01T22:14:00+08:00</lastmod>
   </url>
   
   <url>
-    <loc>http://example.org/tags/</loc>
+    <loc>https://www.evanescere.xyz/tags.html</loc>
     <lastmod>2020-08-01T22:14:00+08:00</lastmod>
   </url>
   
   <url>
-    <loc>http://example.org/posts/new-test/</loc>
+    <loc>https://www.evanescere.xyz/posts/new-test.html</loc>
     <lastmod>2020-08-01T21:39:00+08:00</lastmod>
   </url>
   
   <url>
-    <loc>http://example.org/categories/programming/</loc>
+    <loc>https://www.evanescere.xyz/categories/programming.html</loc>
     <lastmod>2020-08-01T21:39:00+08:00</lastmod>
   </url>
   
   <url>
-    <loc>http://example.org/tags/test/</loc>
+    <loc>https://www.evanescere.xyz/tags/test.html</loc>
     <lastmod>2020-08-01T21:39:00+08:00</lastmod>
   </url>
   
