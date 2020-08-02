@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on evanescere</title>
+    <link>http://example.org/posts/</link>
+    <description>Recent content in Posts on evanescere</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>This is a customized copyright.</copyright>
+    <lastBuildDate>Sun, 02 Aug 2020 15:05:00 +0800</lastBuildDate>
+    
+	<atom:link href="http://example.org/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>SVM</title>
+      <link>http://example.org/posts/svm/</link>
+      <pubDate>Sun, 02 Aug 2020 15:05:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/svm/</guid>
+      <description>线性情况 将SVM转换成二次凸优化问题 \[\begin{aligned} &amp;amp; \underset{x}{\text{minimize}} &amp;amp; &amp;amp; \frac{ \lVert{w}\rVert^2 }{2} \\\
+&amp;amp; \text{subject to} &amp;amp; &amp;amp; y_i(w^T\cdot x_i+b)\geq 1,;i = 1, \ldots, n. \end{aligned} \] 通过拉格朗日对偶性Lagrange Duality变换到对偶变量dual_ variable的优化问题，即通过求解与原问题等价的对偶问题（dual problem）得到原始问题的最优解，这就是线性可分条件下支持向量机的对偶算法，这样做的优点在于：一者对偶问题往往更容易求解；二者可以自然的引入核函数，进而推广到非线性分类问题。 通过拉格朗日函数将约束条件融合到目标函数里去: \[L(w,b,\alpha)=\frac{1}{2}\lVert{w}\rVert^2 - \sum_{i=1}^{n}\alpha_i(y_i(w^T\cdot x_i+b)-1)\] 其中\(\alpha_i\geq 0\),然后问题就变成了 \[\min_{w,b}\max_{\alpha_i\geq 0}L(w,b,\alpha)\] 由于kkt条件成立,原凸规划问题可以转化为先对w和b求偏导，令其等于0消掉w和b，然后再对α求L的最大值。 $$\begin{cases} \frac{\partial L}{\partial w}=0 \frac{\partial L}{\partial b}=0 \end{cases}⇒
+\begin{cases} w=\sum_{i=1}^n \alpha_i y_i x_i \\\
+\sum_{i=1}^n \alpha_i y_i=0 \\\
+\end{cases}
+$$ 将其代入L中可得：
+\[\begin{aligned} L(w,b,\alpha)&amp;amp;=\frac{1}{2}\lVert{w}\rVert^2 - \sum_{i=1}^{n}\alpha_i(y_i(w^T\cdot x_i+b)-1)\\\
+&amp;amp;=\frac{1}{2}w^Tw-w^T\sum_{i=1}^{n}\alpha_iy_iw^Tx_i-\sum_{i=1}^{n}\alpha_iy_ib+\sum_{i=1}^{n}\alpha_i\\\
+&amp;amp;=\frac{1}{2}w^T\sum_{i=1}^{n}\alpha_iy_ix_i-w^T\sum_{i=1}^{n}\alpha_iy_ix_i-b\sum_{i=1}^{n}\alpha_iy_i+\sum_{i=1}^{n}\alpha_i\\\
+&amp;amp;=-\frac{1}{2}\sum_{i=1}^{n}\alpha_iy_i(x_i)^T\sum_{i=1}^{n}\alpha_iy_i(x_i)-b\sum_{i=1}^{n}\alpha_iy_i+\sum_{i=1}^{n}\alpha_i\\\
+&amp;amp;=-\frac{1}{2}\sum_{i=1,j=1}^{n}\alpha_iy_i(x_i)^T\alpha_jy_jx_j+\sum_{i=1}^{n}\alpha_i\\\
+\end{aligned} \] 其中由于$α_i$和$y_i$都是实数，因此转置后与自身一样。此时的拉格朗日函数只包含了一个变量，那就是$α_i$。所以对偶问题为： \[\begin{aligned} &amp;amp; \underset{\alpha}{\text{max}} &amp;amp; &amp;amp; \sum_{i=1}^{n}\alpha_i-\frac{1}{2}\sum_{i=1,j=1}^{n}\alpha_i\alpha_jy_iy_j(x_i)^Tx_j\\\</description>
+    </item>
+    
+    <item>
+      <title>Argumentative Essay Structure</title>
+      <link>http://example.org/posts/en-essay/</link>
+      <pubDate>Sat, 01 Aug 2020 22:14:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/en-essay/</guid>
+      <description>Introduction 结构 Introduction 第一段，3句左右
+ General description：总体描述，1句 Details 1, 2, 3：细节描述（挖掘细节词，串联成句），1句 Caption/Symbolic meaning：文字说明或象征寓意，1句  Body 第二段，意义阐释，5句左右
+ Topic sentence：Symbolic meaning，主题句，象征寓意，1句（首段尾句写了象征意义，就换个说话再来一遍，不来也挺好） Argument：论证，3句左右，考研写作四大论证手段：Cause and Effect：因果论证、Exemplification：举例论证、联系现实，列数据：以小见大，把握象征寓意，个体想为群体，具体想为抽象（4）正反论证 Summary：小结，概括论证，总结本段，1句  Conclusion 第三段，归纳结论/建议措施，4句左右
+ Concluding sentence：结论句，呼应象征寓意，1句 Suggestions 1、2：两句结论或两点建议（针对双方提建议），2句 包装结尾、展望未来：1句  模板 Introduction  主题句  简洁副词引出，Undeniably/ Obviously/ Evidently, + 主题
+ 背景&amp;ndash;反方&amp;ndash;引入theses statement  Although phones have became a nessity to.., stendents are not &amp;hellip;, in terms of 1..2..3.. Although students may benefit from&amp;hellip;, phones should be banned because of 1.</description>
+    </item>
+    
+    <item>
+      <title>New post test</title>
+      <link>http://example.org/posts/new-test/</link>
+      <pubDate>Sat, 01 Aug 2020 21:39:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/new-test/</guid>
+      <description>This is a test post.
+intro introintrointrointro距离上次更新(v1.6.2)已经过去了5个月，很抱歉2.0版本来得这么晚。本来想着在18年12月（PicGo一周年的时候）发布2.0版本，但是无奈正值研究生开题期间，需要花费不少时间（不然毕不了业了T T），所以这个大版本姗姗来迟。不过从这个版本开始，正式支持插件系统，发挥你们的无限想象，PicGo也能成为一个极致的效率工具。除了发布PicGo 2.0本体，一同发布的还有PicGo-Core（PicGo 2.0的底层，支持CLI和API调用），以及VSCode的PicGo插件vs-picgo等。 距离上次更新(v1.6.2)已经过去了5个月，很抱歉2.0版本来得这么晚。本来想着在18年12月（PicGo一周年的时候）发布2.0版本，但是无奈正值研究生开题期间，需要花费不少时间（不然毕不了业了T T），所以这个大版本姗姗来迟。不过从这个版本开始，正式支持插件系统，发挥你们的无限想象，PicGo也能成为一个极致的效率工具。除了发布PicGo 2.0本体，一同发布的还有PicGo-Core（PicGo 2.0的底层，支持CLI和API调用），以及VSCode的PicGo插件vs-picgo等。
+method1 methodmethod methodmethodmethod Input一般是文件路径，经过Transformer读取信息，传入Uploader进行上传，最后通过 Output 输出结果。而插件可以接入三个生命周期（beforeTransform、beforeUpload、afterUpload）以及两种部件（Transformer和Uploader）。换句话说，如果你书写了合适的Uploader，那么可以上传到不同的图床。如果你书写了合适的Transformer，你可以通过URL先行下载文件再通过Uploader上传等等。另外，如果你不想下载PicGo的electron版本，也可以通过npm安装picgo来实现命令行一键上传图片的快速体验。PicGo除了PicGo-Core提供的核心功能之外，额外给GUI插件给予一些自主控制权。比如插件可以拥有自己的菜单项： Input一般是文件路径，经过Transformer读取信息，传入Uploader进行上传，最后通过 Output 输出结果。而插件可以接入三个生命周期（beforeTransform、beforeUpload、afterUpload）以及两种部件（Transformer和Uploader）。换句话说，如果你书写了合适的Uploader，那么可以上传到不同的图床。如果你书写了合适的Transformer，你可以通过URL先行下载文件再通过Uploader上传等等。另外，如果你不想下载PicGo的electron版本，也可以通过npm安装picgo来实现命令行一键上传图片的快速体验。PicGo除了PicGo-Core提供的核心功能之外，额外给GUI插件给予一些自主控制权。比如插件可以拥有自己的菜单项： Input一般是文件路径，经过Transformer读取信息，传入Uploader进行上传，最后通过 Output 输出结果。而插件可以接入三个生命周期（beforeTransform、beforeUpload、afterUpload）以及两种部件（Transformer和Uploader）。换句话说，如果你书写了合适的Uploader，那么可以上传到不同的图床。如果你书写了合适的Transformer，你可以通过URL先行下载文件再通过Uploader上传等等。另外，如果你不想下载PicGo的electron版本，也可以通过npm安装picgo来实现命令行一键上传图片的快速体验。PicGo除了PicGo-Core提供的核心功能之外，额外给GUI插件给予一些自主控制权。比如插件可以拥有自己的菜单项：
+method1 methodmethod methodmethodmethod Input一般是文件路径，经过Transformer读取信息，传入Uploader进行上传，最后通过 Output 输出结果。而插件可以接入三个生命周期（beforeTransform、beforeUpload、afterUpload）以及两种部件（Transformer和Uploader）。换句话说，如果你书写了合适的Uploader，那么可以上传到不同的图床。如果你书写了合适的Transformer，你可以通过URL先行下载文件再通过Uploader上传等等。另外，如果你不想下载PicGo的electron版本，也可以通过npm安装picgo来实现命令行一键上传图片的快速体验。PicGo除了PicGo-Core提供的核心功能之外，额外给GUI插件给予一些自主控制权。比如插件可以拥有自己的菜单项： Input一般是文件路径，经过Transformer读取信息，传入Uploader进行上传，最后通过 Output 输出结果。而插件可以接入三个生命周期（beforeTransform、beforeUpload、afterUpload）以及两种部件（Transformer和Uploader）。换句话说，如果你书写了合适的Uploader，那么可以上传到不同的图床。如果你书写了合适的Transformer，你可以通过URL先行下载文件再通过Uploader上传等等。另外，如果你不想下载PicGo的electron版本，也可以通过npm安装picgo来实现命令行一键上传图片的快速体验。PicGo除了PicGo-Core提供的核心功能之外，额外给GUI插件给予一些自主控制权。比如插件可以拥有自己的菜单项： Input一般是文件路径，经过Transformer读取信息，传入Uploader进行上传，最后通过 Output 输出结果。而插件可以接入三个生命周期（beforeTransform、beforeUpload、afterUpload）以及两种部件（Transformer和Uploader）。换句话说，如果你书写了合适的Uploader，那么可以上传到不同的图床。如果你书写了合适的Transformer，你可以通过URL先行下载文件再通过Uploader上传等等。另外，如果你不想下载PicGo的electron版本，也可以通过npm安装picgo来实现命令行一键上传图片的快速体验。PicGo除了PicGo-Core提供的核心功能之外，额外给GUI插件给予一些自主控制权。比如插件可以拥有自己的菜单项：
+method2 methodmethod methodmethodmethod Input一般是文件路径，经过Transformer读取信息，传入Uploader进行上传，最后通过 Output 输出结果。而插件可以接入三个生命周期（beforeTransform、beforeUpload、afterUpload）以及两种部件（Transformer和Uploader）。换句话说，如果你书写了合适的Uploader，那么可以上传到不同的图床。如果你书写了合适的Transformer，你可以通过URL先行下载文件再通过Uploader上传等等。另外，如果你不想下载PicGo的electron版本，也可以通过npm安装picgo来实现命令行一键上传图片的快速体验。PicGo除了PicGo-Core提供的核心功能之外，额外给GUI插件给予一些自主控制权。比如插件可以拥有自己的菜单项： Input一般是文件路径，经过Transformer读取信息，传入Uploader进行上传，最后通过 Output 输出结果。而插件可以接入三个生命周期（beforeTransform、beforeUpload、afterUpload）以及两种部件（Transformer和Uploader）。换句话说，如果你书写了合适的Uploader，那么可以上传到不同的图床。如果你书写了合适的Transformer，你可以通过URL先行下载文件再通过Uploader上传等等。另外，如果你不想下载PicGo的electron版本，也可以通过npm安装picgo来实现命令行一键上传图片的快速体验。PicGo除了PicGo-Core提供的核心功能之外，额外给GUI插件给予一些自主控制权。比如插件可以拥有自己的菜单项： Input一般是文件路径，经过Transformer读取信息，传入Uploader进行上传，最后通过 Output 输出结果。而插件可以接入三个生命周期（beforeTransform、beforeUpload、afterUpload）以及两种部件（Transformer和Uploader）。换句话说，如果你书写了合适的Uploader，那么可以上传到不同的图床。如果你书写了合适的Transformer，你可以通过URL先行下载文件再通过Uploader上传等等。另外，如果你不想下载PicGo的electron版本，也可以通过npm安装picgo来实现命令行一键上传图片的快速体验。PicGo除了PicGo-Core提供的核心功能之外，额外给GUI插件给予一些自主控制权。比如插件可以拥有自己的菜单项：
+method2 methodmethod methodmethodmethod Input一般是文件路径，经过Transformer读取信息，传入Uploader进行上传，最后通过 Output 输出结果。而插件可以接入三个生命周期（beforeTransform、beforeUpload、afterUpload）以及两种部件（Transformer和Uploader）。换句话说，如果你书写了合适的Uploader，那么可以上传到不同的图床。如果你书写了合适的Transformer，你可以通过URL先行下载文件再通过Uploader上传等等。另外，如果你不想下载PicGo的electron版本，也可以通过npm安装picgo来实现命令行一键上传图片的快速体验。PicGo除了PicGo-Core提供的核心功能之外，额外给GUI插件给予一些自主控制权。比如插件可以拥有自己的菜单项： Input一般是文件路径，经过Transformer读取信息，传入Uploader进行上传，最后通过 Output 输出结果。而插件可以接入三个生命周期（beforeTransform、beforeUpload、afterUpload）以及两种部件（Transformer和Uploader）。换句话说，如果你书写了合适的Uploader，那么可以上传到不同的图床。如果你书写了合适的Transformer，你可以通过URL先行下载文件再通过Uploader上传等等。另外，如果你不想下载PicGo的electron版本，也可以通过npm安装picgo来实现命令行一键上传图片的快速体验。PicGo除了PicGo-Core提供的核心功能之外，额外给GUI插件给予一些自主控制权。比如插件可以拥有自己的菜单项： Input一般是文件路径，经过Transformer读取信息，传入Uploader进行上传，最后通过 Output 输出结果。而插件可以接入三个生命周期（beforeTransform、beforeUpload、afterUpload）以及两种部件（Transformer和Uploader）。换句话说，如果你书写了合适的Uploader，那么可以上传到不同的图床。如果你书写了合适的Transformer，你可以通过URL先行下载文件再通过Uploader上传等等。另外，如果你不想下载PicGo的electron版本，也可以通过npm安装picgo来实现命令行一键上传图片的快速体验。PicGo除了PicGo-Core提供的核心功能之外，额外给GUI插件给予一些自主控制权。比如插件可以拥有自己的菜单项：</description>
+    </item>
+    
+  </channel>
+</rss>

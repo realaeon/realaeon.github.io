@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>test on evanescere</title>
+    <link>http://example.org/tags/test/</link>
+    <description>Recent content in test on evanescere</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>This is a customized copyright.</copyright>
+    <lastBuildDate>Sat, 01 Aug 2020 21:39:00 +0800</lastBuildDate>
+    
+	<atom:link href="http://example.org/tags/test/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>New post test</title>
+      <link>http://example.org/posts/new-test/</link>
+      <pubDate>Sat, 01 Aug 2020 21:39:00 +0800</pubDate>
+      
+      <guid>http://example.org/posts/new-test/</guid>
+      <description>This is a test post.
+intro introintrointrointro距离上次更新(v1.6.2)已经过去了5个月，很抱歉2.0版本来得这么晚。本来想着在18年12月（PicGo一周年的时候）发布2.0版本，但是无奈正值研究生开题期间，需要花费不少时间（不然毕不了业了T T），所以这个大版本姗姗来迟。不过从这个版本开始，正式支持插件系统，发挥你们的无限想象，PicGo也能成为一个极致的效率工具。除了发布PicGo 2.0本体，一同发布的还有PicGo-Core（PicGo 2.0的底层，支持CLI和API调用），以及VSCode的PicGo插件vs-picgo等。 距离上次更新(v1.6.2)已经过去了5个月，很抱歉2.0版本来得这么晚。本来想着在18年12月（PicGo一周年的时候）发布2.0版本，但是无奈正值研究生开题期间，需要花费不少时间（不然毕不了业了T T），所以这个大版本姗姗来迟。不过从这个版本开始，正式支持插件系统，发挥你们的无限想象，PicGo也能成为一个极致的效率工具。除了发布PicGo 2.0本体，一同发布的还有PicGo-Core（PicGo 2.0的底层，支持CLI和API调用），以及VSCode的PicGo插件vs-picgo等。
+method1 methodmethod methodmethodmethod Input一般是文件路径，经过Transformer读取信息，传入Uploader进行上传，最后通过 Output 输出结果。而插件可以接入三个生命周期（beforeTransform、beforeUpload、afterUpload）以及两种部件（Transformer和Uploader）。换句话说，如果你书写了合适的Uploader，那么可以上传到不同的图床。如果你书写了合适的Transformer，你可以通过URL先行下载文件再通过Uploader上传等等。另外，如果你不想下载PicGo的electron版本，也可以通过npm安装picgo来实现命令行一键上传图片的快速体验。PicGo除了PicGo-Core提供的核心功能之外，额外给GUI插件给予一些自主控制权。比如插件可以拥有自己的菜单项： Input一般是文件路径，经过Transformer读取信息，传入Uploader进行上传，最后通过 Output 输出结果。而插件可以接入三个生命周期（beforeTransform、beforeUpload、afterUpload）以及两种部件（Transformer和Uploader）。换句话说，如果你书写了合适的Uploader，那么可以上传到不同的图床。如果你书写了合适的Transformer，你可以通过URL先行下载文件再通过Uploader上传等等。另外，如果你不想下载PicGo的electron版本，也可以通过npm安装picgo来实现命令行一键上传图片的快速体验。PicGo除了PicGo-Core提供的核心功能之外，额外给GUI插件给予一些自主控制权。比如插件可以拥有自己的菜单项： Input一般是文件路径，经过Transformer读取信息，传入Uploader进行上传，最后通过 Output 输出结果。而插件可以接入三个生命周期（beforeTransform、beforeUpload、afterUpload）以及两种部件（Transformer和Uploader）。换句话说，如果你书写了合适的Uploader，那么可以上传到不同的图床。如果你书写了合适的Transformer，你可以通过URL先行下载文件再通过Uploader上传等等。另外，如果你不想下载PicGo的electron版本，也可以通过npm安装picgo来实现命令行一键上传图片的快速体验。PicGo除了PicGo-Core提供的核心功能之外，额外给GUI插件给予一些自主控制权。比如插件可以拥有自己的菜单项：
+method1 methodmethod methodmethodmethod Input一般是文件路径，经过Transformer读取信息，传入Uploader进行上传，最后通过 Output 输出结果。而插件可以接入三个生命周期（beforeTransform、beforeUpload、afterUpload）以及两种部件（Transformer和Uploader）。换句话说，如果你书写了合适的Uploader，那么可以上传到不同的图床。如果你书写了合适的Transformer，你可以通过URL先行下载文件再通过Uploader上传等等。另外，如果你不想下载PicGo的electron版本，也可以通过npm安装picgo来实现命令行一键上传图片的快速体验。PicGo除了PicGo-Core提供的核心功能之外，额外给GUI插件给予一些自主控制权。比如插件可以拥有自己的菜单项： Input一般是文件路径，经过Transformer读取信息，传入Uploader进行上传，最后通过 Output 输出结果。而插件可以接入三个生命周期（beforeTransform、beforeUpload、afterUpload）以及两种部件（Transformer和Uploader）。换句话说，如果你书写了合适的Uploader，那么可以上传到不同的图床。如果你书写了合适的Transformer，你可以通过URL先行下载文件再通过Uploader上传等等。另外，如果你不想下载PicGo的electron版本，也可以通过npm安装picgo来实现命令行一键上传图片的快速体验。PicGo除了PicGo-Core提供的核心功能之外，额外给GUI插件给予一些自主控制权。比如插件可以拥有自己的菜单项： Input一般是文件路径，经过Transformer读取信息，传入Uploader进行上传，最后通过 Output 输出结果。而插件可以接入三个生命周期（beforeTransform、beforeUpload、afterUpload）以及两种部件（Transformer和Uploader）。换句话说，如果你书写了合适的Uploader，那么可以上传到不同的图床。如果你书写了合适的Transformer，你可以通过URL先行下载文件再通过Uploader上传等等。另外，如果你不想下载PicGo的electron版本，也可以通过npm安装picgo来实现命令行一键上传图片的快速体验。PicGo除了PicGo-Core提供的核心功能之外，额外给GUI插件给予一些自主控制权。比如插件可以拥有自己的菜单项：
+method2 methodmethod methodmethodmethod Input一般是文件路径，经过Transformer读取信息，传入Uploader进行上传，最后通过 Output 输出结果。而插件可以接入三个生命周期（beforeTransform、beforeUpload、afterUpload）以及两种部件（Transformer和Uploader）。换句话说，如果你书写了合适的Uploader，那么可以上传到不同的图床。如果你书写了合适的Transformer，你可以通过URL先行下载文件再通过Uploader上传等等。另外，如果你不想下载PicGo的electron版本，也可以通过npm安装picgo来实现命令行一键上传图片的快速体验。PicGo除了PicGo-Core提供的核心功能之外，额外给GUI插件给予一些自主控制权。比如插件可以拥有自己的菜单项： Input一般是文件路径，经过Transformer读取信息，传入Uploader进行上传，最后通过 Output 输出结果。而插件可以接入三个生命周期（beforeTransform、beforeUpload、afterUpload）以及两种部件（Transformer和Uploader）。换句话说，如果你书写了合适的Uploader，那么可以上传到不同的图床。如果你书写了合适的Transformer，你可以通过URL先行下载文件再通过Uploader上传等等。另外，如果你不想下载PicGo的electron版本，也可以通过npm安装picgo来实现命令行一键上传图片的快速体验。PicGo除了PicGo-Core提供的核心功能之外，额外给GUI插件给予一些自主控制权。比如插件可以拥有自己的菜单项： Input一般是文件路径，经过Transformer读取信息，传入Uploader进行上传，最后通过 Output 输出结果。而插件可以接入三个生命周期（beforeTransform、beforeUpload、afterUpload）以及两种部件（Transformer和Uploader）。换句话说，如果你书写了合适的Uploader，那么可以上传到不同的图床。如果你书写了合适的Transformer，你可以通过URL先行下载文件再通过Uploader上传等等。另外，如果你不想下载PicGo的electron版本，也可以通过npm安装picgo来实现命令行一键上传图片的快速体验。PicGo除了PicGo-Core提供的核心功能之外，额外给GUI插件给予一些自主控制权。比如插件可以拥有自己的菜单项：
+method2 methodmethod methodmethodmethod Input一般是文件路径，经过Transformer读取信息，传入Uploader进行上传，最后通过 Output 输出结果。而插件可以接入三个生命周期（beforeTransform、beforeUpload、afterUpload）以及两种部件（Transformer和Uploader）。换句话说，如果你书写了合适的Uploader，那么可以上传到不同的图床。如果你书写了合适的Transformer，你可以通过URL先行下载文件再通过Uploader上传等等。另外，如果你不想下载PicGo的electron版本，也可以通过npm安装picgo来实现命令行一键上传图片的快速体验。PicGo除了PicGo-Core提供的核心功能之外，额外给GUI插件给予一些自主控制权。比如插件可以拥有自己的菜单项： Input一般是文件路径，经过Transformer读取信息，传入Uploader进行上传，最后通过 Output 输出结果。而插件可以接入三个生命周期（beforeTransform、beforeUpload、afterUpload）以及两种部件（Transformer和Uploader）。换句话说，如果你书写了合适的Uploader，那么可以上传到不同的图床。如果你书写了合适的Transformer，你可以通过URL先行下载文件再通过Uploader上传等等。另外，如果你不想下载PicGo的electron版本，也可以通过npm安装picgo来实现命令行一键上传图片的快速体验。PicGo除了PicGo-Core提供的核心功能之外，额外给GUI插件给予一些自主控制权。比如插件可以拥有自己的菜单项： Input一般是文件路径，经过Transformer读取信息，传入Uploader进行上传，最后通过 Output 输出结果。而插件可以接入三个生命周期（beforeTransform、beforeUpload、afterUpload）以及两种部件（Transformer和Uploader）。换句话说，如果你书写了合适的Uploader，那么可以上传到不同的图床。如果你书写了合适的Transformer，你可以通过URL先行下载文件再通过Uploader上传等等。另外，如果你不想下载PicGo的electron版本，也可以通过npm安装picgo来实现命令行一键上传图片的快速体验。PicGo除了PicGo-Core提供的核心功能之外，额外给GUI插件给予一些自主控制权。比如插件可以拥有自己的菜单项：</description>
+    </item>
+    
+  </channel>
+</rss>

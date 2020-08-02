@@ -1,0 +1,289 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>evanescere</title>
+    <link>http://example.org/</link>
+    <description>Recent content on evanescere</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>This is a customized copyright.</copyright>
+    <lastBuildDate>Sun, 02 Aug 2020 15:05:00 +0800</lastBuildDate>
+    
+        <atom:link href="http://example.org/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+        <item>
+        <title>SVM</title>
+        <link>http://example.org/posts/svm/</link>
+        <pubDate>Sun, 02 Aug 2020 15:05:00 +0800</pubDate>
+        
+        <guid>http://example.org/posts/svm/</guid>
+        <description>evanescere http://example.org/posts/svm/ -&lt;h2 id=&#34;线性情况&#34;&gt;线性情况&lt;/h2&gt;
+&lt;p&gt;将SVM转换成二次凸优化问题
+\[\begin{aligned}
+&amp;amp; \underset{x}{\text{minimize}}
+&amp;amp; &amp;amp; \frac{ \lVert{w}\rVert^2 }{2} \\\&lt;br&gt;
+&amp;amp; \text{subject to}
+&amp;amp; &amp;amp; y_i(w^T\cdot x_i+b)\geq 1,;i = 1, \ldots, n.
+\end{aligned}
+\]
+通过拉格朗日对偶性Lagrange Duality变换到对偶变量dual_ variable的优化问题，即通过求解与原问题等价的对偶问题（dual problem）得到原始问题的最优解，这就是线性可分条件下支持向量机的对偶算法，这样做的优点在于：一者对偶问题往往更容易求解；二者可以自然的引入核函数，进而推广到非线性分类问题。
+通过拉格朗日函数将约束条件融合到目标函数里去:
+\[L(w,b,\alpha)=\frac{1}{2}\lVert{w}\rVert^2 - \sum_{i=1}^{n}\alpha_i(y_i(w^T\cdot x_i+b)-1)\]
+其中\(\alpha_i\geq 0\),然后问题就变成了
+\[\min_{w,b}\max_{\alpha_i\geq 0}L(w,b,\alpha)\]
+由于kkt条件成立,原凸规划问题可以转化为先对w和b求偏导，令其等于0消掉w和b，然后再对α求L的最大值。
+$$\begin{cases}
+\frac{\partial L}{\partial w}=0 &lt;!-- raw HTML omitted --&gt;
+\frac{\partial L}{\partial b}=0 &lt;!-- raw HTML omitted --&gt;
+\end{cases}⇒&lt;/p&gt;
+&lt;p&gt;\begin{cases}
+w=\sum_{i=1}^n \alpha_i y_i x_i \\\&lt;br&gt;
+\sum_{i=1}^n \alpha_i y_i=0 \\\&lt;br&gt;
+\end{cases}&lt;/p&gt;
+&lt;p&gt;$$
+将其代入L中可得：&lt;/p&gt;
+&lt;p&gt;\[\begin{aligned}
+L(w,b,\alpha)&amp;amp;=\frac{1}{2}\lVert{w}\rVert^2 - \sum_{i=1}^{n}\alpha_i(y_i(w^T\cdot x_i+b)-1)\\\&lt;br&gt;
+&amp;amp;=\frac{1}{2}w^Tw-w^T\sum_{i=1}^{n}\alpha_iy_iw^Tx_i-\sum_{i=1}^{n}\alpha_iy_ib+\sum_{i=1}^{n}\alpha_i\\\&lt;br&gt;
+&amp;amp;=\frac{1}{2}w^T\sum_{i=1}^{n}\alpha_iy_ix_i-w^T\sum_{i=1}^{n}\alpha_iy_ix_i-b\sum_{i=1}^{n}\alpha_iy_i+\sum_{i=1}^{n}\alpha_i\\\&lt;br&gt;
+&amp;amp;=-\frac{1}{2}\sum_{i=1}^{n}\alpha_iy_i(x_i)^T\sum_{i=1}^{n}\alpha_iy_i(x_i)-b\sum_{i=1}^{n}\alpha_iy_i+\sum_{i=1}^{n}\alpha_i\\\&lt;br&gt;
+&amp;amp;=-\frac{1}{2}\sum_{i=1,j=1}^{n}\alpha_iy_i(x_i)^T\alpha_jy_jx_j+\sum_{i=1}^{n}\alpha_i\\\&lt;br&gt;
+\end{aligned}
+\]
+其中由于$α_i$和$y_i$都是实数，因此转置后与自身一样。此时的拉格朗日函数只包含了一个变量，那就是$α_i$。所以对偶问题为：
+\[\begin{aligned}
+&amp;amp; \underset{\alpha}{\text{max}}
+&amp;amp; &amp;amp; \sum_{i=1}^{n}\alpha_i-\frac{1}{2}\sum_{i=1,j=1}^{n}\alpha_i\alpha_jy_iy_j(x_i)^Tx_j\\\&lt;br&gt;
+&amp;amp; \text{subject to}
+&amp;amp; &amp;amp; \alpha_i\geq 0,;i = 1, \ldots, n.\\\&lt;br&gt;
+&amp;amp; &amp;amp; &amp;amp;\sum_{i=1}^n \alpha_i y_i=0
+\end{aligned}
+\]
+这样，求出了$α_i$，即可求出w和b&lt;/p&gt;
+&lt;h2 id=&#34;非线性情况&#34;&gt;非线性情况&lt;/h2&gt;
+&lt;p&gt;对于一个数据点 x 进行分类，实际上是通过把 x 带入到\(f(x)=w^Tx+b\),由于$w=∑&lt;!-- raw HTML omitted --&gt;i=1&lt;!-- raw HTML omitted --&gt;^n α_i y_i x_i$，因此分类函数为：
+\[\begin{aligned}
+f(x)&amp;amp;=(\sum_{i=1}^{n}\alpha_iy_ix_i)^Tx+b\\\&lt;br&gt;
+&amp;amp;=\sum_{i=1}^{n}\alpha_iy_ixx_i^T+b
+\end{aligned}
+\]&lt;/p&gt;
+&lt;h2 id=&#34;等式与不等式约束优化&#34;&gt;等式与不等式约束优化&lt;/h2&gt;
+&lt;p&gt;1、无约束优化问题，常常使用的方法就是Fermat定理，即使用求取f(x)的导数，然后令其为零，可以求得候选最优值，再在这些候选值中验证；如果是凸函数，可以保证是最优解。
+2、对于有等式约束的优化问题，常常使用的方法就是拉格朗日乘子法（Lagrange Multiplier) ，即把等式约束h_i(x)用一个系数与f(x)写为一个式子，称为拉格朗日函数，而系数称为拉格朗日乘子。通过拉格朗日函数对各个变量求导，令其为零，可以求得候选值集合，然后验证求得最优值。
+3、有不等式约束的优化问题，使用的方法就是KKT条件。同样地，我们把所有的等式、不等式约束与f(x)写为一个式子，也叫拉格朗日函数，系数也称拉格朗日乘子，通过一些条件，可以求出最优值的必要条件，这个条件称为KKT条件。&lt;/p&gt;
+&lt;p&gt;在一个nonlinear program中，要想取到optimum，一定要满足Fritz John Condition（通过Gordon&amp;rsquo; Theorem得到）。而通过添加一些constraint qualification，可以推导出一旦满足Kuhn Tucker Condition则一定取到optimum。KKT语言描述就是objective function的gradient是所有constraint的gradient的线性组合。&lt;/p&gt;
+- http://example.org/posts/svm/ - This is a customized copyright.</description>
+        </item>
+    
+    
+    
+        <item>
+        <title>Argumentative Essay Structure</title>
+        <link>http://example.org/posts/en-essay/</link>
+        <pubDate>Sat, 01 Aug 2020 22:14:00 +0800</pubDate>
+        
+        <guid>http://example.org/posts/en-essay/</guid>
+        <description>evanescere http://example.org/posts/en-essay/ -&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+&lt;h3 id=&#34;结构&#34;&gt;结构&lt;/h3&gt;
+&lt;h4 id=&#34;introduction&#34;&gt;Introduction&lt;/h4&gt;
+&lt;p&gt;第一段，3句左右&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;General description：总体描述，1句&lt;/li&gt;
+&lt;li&gt;Details 1, 2, 3：细节描述（挖掘细节词，串联成句），1句&lt;/li&gt;
+&lt;li&gt;Caption/Symbolic meaning：文字说明或象征寓意，1句&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;body&#34;&gt;Body&lt;/h4&gt;
+&lt;p&gt;第二段，意义阐释，5句左右&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Topic sentence：Symbolic meaning，主题句，象征寓意，1句（首段尾句写了象征意义，就换个说话再来一遍，不来也挺好）&lt;/li&gt;
+&lt;li&gt;Argument：论证，3句左右，考研写作四大论证手段：Cause and Effect：因果论证、Exemplification：举例论证、联系现实，列数据：以小见大，把握象征寓意，个体想为群体，具体想为抽象（4）正反论证&lt;/li&gt;
+&lt;li&gt;Summary：小结，概括论证，总结本段，1句&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h4&gt;
+&lt;p&gt;第三段，归纳结论/建议措施，4句左右&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Concluding sentence：结论句，呼应象征寓意，1句&lt;/li&gt;
+&lt;li&gt;Suggestions 1、2：两句结论或两点建议（针对双方提建议），2句&lt;/li&gt;
+&lt;li&gt;包装结尾、展望未来：1句&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;模板&#34;&gt;模板&lt;/h3&gt;
+&lt;h4 id=&#34;introduction&#34;&gt;Introduction&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;主题句&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;简洁副词引出，Undeniably/ Obviously/ Evidently, + 主题&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;背景&amp;ndash;反方&amp;ndash;引入theses statement&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Although phones have became a nessity to.., stendents are not &amp;hellip;, in terms of 1..2..3..
+Although students may benefit from&amp;hellip;, phones should be banned because of 1..2..3&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;突出情绪：背景&amp;ndash;反驳谁？反驳什么观点？&amp;ndash;引出论题&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Someone boasts/asserts that&amp;hellip;&amp;hellip;, such ideas might sound plausible, but in my point of view, it is quite ridiculous/absurd. In other words,&amp;hellip;&amp;hellip;&lt;/p&gt;
+&lt;p&gt;(Background information)Modern society has received as many criticisms as one can imagine. Among such negative claims, one sentence asserts that we modern people are no longer polite to others. (Working on the thesis statement)In my point of view, nothing can be more absurd than this. In other words, considerting the prevalence of online communication and scarce of freetime, we modern people are virtually more polite to each other.&lt;/p&gt;
+&lt;p&gt;Fairytales about friendship between poor and rich can be seen everywhere in our literature and films, giving popular mind the illusion that friendship goes beyond money. Such stories about “pure”friendship, however, do not reflect what happens in real world. In other words, it is hard, if not impossible, for poor and rich to be friends.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;突出推理：背景&amp;ndash;推理相关因素&amp;ndash;引出论题&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Many factors contribute to 。。。。, such as 。。。 and。。。。. In my point of view,。。。。。。&lt;/p&gt;
+&lt;p&gt;Many factors contribute to the maintenance of friendship, such as tolerance and mutual respect. In my point of view, competition will do harm to all these virtues, thus destroying friendship.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;题目有图&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;As is illustrated/revealed/depicted in the picture/drawing above,&amp;hellip;&amp;hellip;&amp;hellip;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;回忆性文章&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;During the past ……, we had an unforgettable communication with ……, which would last long in our mind. ……&lt;/p&gt;
+&lt;h4 id=&#34;body&#34;&gt;Body&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;3段&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;段主题句+ 反方不对+正方对（examples,evidence,cause and effect,compare and contrast）
+opposing point seem/like&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;展开论述&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This activity plays an important educational role in our daily life. For one thing。。。For another。。。 Furthermore。。。 In short, we have broadened our horizon and known more about the culture of different area.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;举例&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Numerous examples/ inllustration can be given, but this/these will suffice.举例之前
+This/These case(s) effectively clarify that…举例之后&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;正反例证：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Two examples that aptly illustrate this point(两个例子可以恰当的解释这个点) involve the fields of ( )&lt;/p&gt;
+&lt;p&gt;正面举例：One compelling argument in favor of a global university has to do with the fact that its faculty and students would bring diverse cultural and educational perspectives to the problems they seek to(努力做什么)solve.&lt;/p&gt;
+&lt;p&gt;反面举例：It might be tempting to(貌似吸引人的是)think(。。。。 ). However, in my view any such concerns are unwarranted(这种担心是毫无根据的), especially considering the growing awareness of(对什么越来越了解)( ).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;引用论证&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Just as an old Chinese saying goes:&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;..&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;To further demonstrate the importance of &amp;hellip;..,I would like to take a famous fable as a case in point.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;强调观点&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Nevertheless ,the opposition voice may persist objecting the decision arguing that(。。。。)
+However, in my view, such concerns are groundless, especially when considering the fact that&amp;hellip;..&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;采取措施&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Therefore, 。。take some useful measures to avoid。。。that is mentioned above&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;政府&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;appeal to our government to establish some relevant laws/ implement a fairer policy to。。。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;倒装&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Only in this way can we build up a harmonious family and society.&lt;/p&gt;
+&lt;h4 id=&#34;other&#34;&gt;other&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;重要性&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&amp;hellip;&amp;hellip; not only necessary, but also indispensable. &amp;hellip;&amp;hellip;play a significant/ increasingly vital role/part in our society&amp;hellip;&amp;hellip;cannot be ignored&lt;/p&gt;
+&lt;p&gt;The importance of&amp;hellip;.has been overlooked until recently.&lt;/p&gt;
+&lt;p&gt;and that&amp;rsquo;s why we are supposed to emphasize its centre position in our society&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;优缺点&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;There is no doubt that (。。。。)has its drawbacks as well as merits.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;关注&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Nowadays there is a growing concern over ……&lt;/p&gt;
+&lt;p&gt;persuade sb. to be concerned and aware about&amp;hellip;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;责任&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;turn pressure into motivation which inspires us to do &amp;hellip;&amp;hellip;.&lt;/p&gt;
+&lt;p&gt;regard 。。。 as a burden although it is their duty to 。。。。&lt;/p&gt;
+&lt;p&gt;They no longer care for~~; instead they try every means to avoid responsibility for 。。&lt;/p&gt;
+&lt;p&gt;spare no effort to do sth.&lt;/p&gt;
+&lt;h3 id=&#34;词组&#34;&gt;词组&lt;/h3&gt;
+&lt;h4 id=&#34;连接词&#34;&gt;连接词&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;我认为：in my point of view/ in my perspective/ to begin with/ as far as I think&lt;/li&gt;
+&lt;li&gt;分开说：for one thing&amp;hellip;for another&amp;hellip;/&lt;/li&gt;
+&lt;li&gt;并列/递进：first and foremost/ furthermore/besides/and also/ moreover/ meanwhile/  in particular/ naturally&lt;/li&gt;
+&lt;li&gt;转折关系：even though, though, regardless of， however关系松 nevertheless紧&lt;/li&gt;
+&lt;li&gt;因果：accordingly 于是/for this reason 由于这个原因/ in order to/ as a result of 由……结/in this way 这样/consequently 结果，因此/due to 由于…/therefore 因而/because of 因为&lt;/li&gt;
+&lt;li&gt;对比：on the contrary/ in contrast with 和……成对/ vary\differ from/ compared with/A is not as &amp;hellip; as B/ as well as&lt;/li&gt;
+&lt;li&gt;举例：for instance/a case in point 恰当的例子&lt;/li&gt;
+&lt;li&gt;总结：to sum up/ in short &lt;em&gt;in general /generally speaking / /so强 therefore弱&lt;/em&gt; in conclusion&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;常用词-替换&#34;&gt;常用词（替换）&lt;/h4&gt;
+&lt;p&gt;倾向于 tend to，be prone to &amp;hellip;
+可能 may do -&amp;gt; be likely to do..
+部分地 partly，partail
+许多 Many -&amp;gt; quite a few, vast amounts of&amp;hellip; ,numerous,
+相关 related -&amp;gt; relevant
+保持 keep -&amp;gt;  hold/ maintain/ preserve/ sustain
+重要 important -&amp;gt; significant, crucial,essential
+引起 cause -&amp;gt; lead to/ result in/ bring about/ give rise to/ engender, contribute to&lt;/p&gt;
+&lt;p&gt;contribute to/ be naturally associated with
+Represent 代表，symbolize 象征，epitomize 是•••的缩影，
+plays an important/significant &amp;hellip; role in &amp;hellip;
+provides an opportunity for &amp;hellip;
+broaden their scope of knowledge
+不担心 There is no need to worry too much about&amp;hellip;
+让步 Granded，it can be admitted that..
+物质和精神层面At the physical and the spiritual levels/layers&lt;/p&gt;
+&lt;h4 id=&#34;句型&#34;&gt;句型&lt;/h4&gt;
+&lt;p&gt;— 倒装句：Only in this way can we solve this problem.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;强调句：It is persistent work that is conducive to your grasping a considerable vocabulary.&lt;/li&gt;
+&lt;li&gt;虚拟语气：It is high time that we improved the present situation.&lt;/li&gt;
+&lt;li&gt;There be/ With&lt;/li&gt;
+&lt;/ul&gt;
+- http://example.org/posts/en-essay/ - This is a customized copyright.</description>
+        </item>
+    
+    
+    
+        <item>
+        <title>New post test</title>
+        <link>http://example.org/posts/new-test/</link>
+        <pubDate>Sat, 01 Aug 2020 21:39:00 +0800</pubDate>
+        
+        <guid>http://example.org/posts/new-test/</guid>
+        <description>evanescere http://example.org/posts/new-test/ -&lt;p&gt;This is a test post.&lt;/p&gt;
+&lt;h2 id=&#34;intro&#34;&gt;intro&lt;/h2&gt;
+&lt;p&gt;introintrointrointro距离上次更新(v1.6.2)已经过去了5个月，很抱歉2.0版本来得这么晚。本来想着在18年12月（PicGo一周年的时候）发布2.0版本，但是无奈正值研究生开题期间，需要花费不少时间（不然毕不了业了T T），所以这个大版本姗姗来迟。不过从这个版本开始，正式支持插件系统，发挥你们的无限想象，PicGo也能成为一个极致的效率工具。除了发布PicGo 2.0本体，一同发布的还有PicGo-Core（PicGo 2.0的底层，支持CLI和API调用），以及VSCode的PicGo插件vs-picgo等。
+距离上次更新(v1.6.2)已经过去了5个月，很抱歉2.0版本来得这么晚。本来想着在18年12月（PicGo一周年的时候）发布2.0版本，但是无奈正值研究生开题期间，需要花费不少时间（不然毕不了业了T T），所以这个大版本姗姗来迟。不过从这个版本开始，正式支持插件系统，发挥你们的无限想象，PicGo也能成为一个极致的效率工具。除了发布PicGo 2.0本体，一同发布的还有PicGo-Core（PicGo 2.0的底层，支持CLI和API调用），以及VSCode的PicGo插件vs-picgo等。&lt;/p&gt;
+&lt;h2 id=&#34;method1&#34;&gt;method1&lt;/h2&gt;
+&lt;p&gt;methodmethod methodmethodmethod
+Input一般是文件路径，经过Transformer读取信息，传入Uploader进行上传，最后通过 Output 输出结果。而插件可以接入三个生命周期（beforeTransform、beforeUpload、afterUpload）以及两种部件（Transformer和Uploader）。换句话说，如果你书写了合适的Uploader，那么可以上传到不同的图床。如果你书写了合适的Transformer，你可以通过URL先行下载文件再通过Uploader上传等等。另外，如果你不想下载PicGo的electron版本，也可以通过npm安装picgo来实现命令行一键上传图片的快速体验。PicGo除了PicGo-Core提供的核心功能之外，额外给GUI插件给予一些自主控制权。比如插件可以拥有自己的菜单项：
+Input一般是文件路径，经过Transformer读取信息，传入Uploader进行上传，最后通过 Output 输出结果。而插件可以接入三个生命周期（beforeTransform、beforeUpload、afterUpload）以及两种部件（Transformer和Uploader）。换句话说，如果你书写了合适的Uploader，那么可以上传到不同的图床。如果你书写了合适的Transformer，你可以通过URL先行下载文件再通过Uploader上传等等。另外，如果你不想下载PicGo的electron版本，也可以通过npm安装picgo来实现命令行一键上传图片的快速体验。PicGo除了PicGo-Core提供的核心功能之外，额外给GUI插件给予一些自主控制权。比如插件可以拥有自己的菜单项：
+Input一般是文件路径，经过Transformer读取信息，传入Uploader进行上传，最后通过 Output 输出结果。而插件可以接入三个生命周期（beforeTransform、beforeUpload、afterUpload）以及两种部件（Transformer和Uploader）。换句话说，如果你书写了合适的Uploader，那么可以上传到不同的图床。如果你书写了合适的Transformer，你可以通过URL先行下载文件再通过Uploader上传等等。另外，如果你不想下载PicGo的electron版本，也可以通过npm安装picgo来实现命令行一键上传图片的快速体验。PicGo除了PicGo-Core提供的核心功能之外，额外给GUI插件给予一些自主控制权。比如插件可以拥有自己的菜单项：&lt;/p&gt;
+&lt;h3 id=&#34;method1&#34;&gt;method1&lt;/h3&gt;
+&lt;p&gt;methodmethod methodmethodmethod
+Input一般是文件路径，经过Transformer读取信息，传入Uploader进行上传，最后通过 Output 输出结果。而插件可以接入三个生命周期（beforeTransform、beforeUpload、afterUpload）以及两种部件（Transformer和Uploader）。换句话说，如果你书写了合适的Uploader，那么可以上传到不同的图床。如果你书写了合适的Transformer，你可以通过URL先行下载文件再通过Uploader上传等等。另外，如果你不想下载PicGo的electron版本，也可以通过npm安装picgo来实现命令行一键上传图片的快速体验。PicGo除了PicGo-Core提供的核心功能之外，额外给GUI插件给予一些自主控制权。比如插件可以拥有自己的菜单项：
+Input一般是文件路径，经过Transformer读取信息，传入Uploader进行上传，最后通过 Output 输出结果。而插件可以接入三个生命周期（beforeTransform、beforeUpload、afterUpload）以及两种部件（Transformer和Uploader）。换句话说，如果你书写了合适的Uploader，那么可以上传到不同的图床。如果你书写了合适的Transformer，你可以通过URL先行下载文件再通过Uploader上传等等。另外，如果你不想下载PicGo的electron版本，也可以通过npm安装picgo来实现命令行一键上传图片的快速体验。PicGo除了PicGo-Core提供的核心功能之外，额外给GUI插件给予一些自主控制权。比如插件可以拥有自己的菜单项：
+Input一般是文件路径，经过Transformer读取信息，传入Uploader进行上传，最后通过 Output 输出结果。而插件可以接入三个生命周期（beforeTransform、beforeUpload、afterUpload）以及两种部件（Transformer和Uploader）。换句话说，如果你书写了合适的Uploader，那么可以上传到不同的图床。如果你书写了合适的Transformer，你可以通过URL先行下载文件再通过Uploader上传等等。另外，如果你不想下载PicGo的electron版本，也可以通过npm安装picgo来实现命令行一键上传图片的快速体验。PicGo除了PicGo-Core提供的核心功能之外，额外给GUI插件给予一些自主控制权。比如插件可以拥有自己的菜单项：&lt;/p&gt;
+&lt;h2 id=&#34;method2&#34;&gt;method2&lt;/h2&gt;
+&lt;p&gt;methodmethod methodmethodmethod
+Input一般是文件路径，经过Transformer读取信息，传入Uploader进行上传，最后通过 Output 输出结果。而插件可以接入三个生命周期（beforeTransform、beforeUpload、afterUpload）以及两种部件（Transformer和Uploader）。换句话说，如果你书写了合适的Uploader，那么可以上传到不同的图床。如果你书写了合适的Transformer，你可以通过URL先行下载文件再通过Uploader上传等等。另外，如果你不想下载PicGo的electron版本，也可以通过npm安装picgo来实现命令行一键上传图片的快速体验。PicGo除了PicGo-Core提供的核心功能之外，额外给GUI插件给予一些自主控制权。比如插件可以拥有自己的菜单项：
+Input一般是文件路径，经过Transformer读取信息，传入Uploader进行上传，最后通过 Output 输出结果。而插件可以接入三个生命周期（beforeTransform、beforeUpload、afterUpload）以及两种部件（Transformer和Uploader）。换句话说，如果你书写了合适的Uploader，那么可以上传到不同的图床。如果你书写了合适的Transformer，你可以通过URL先行下载文件再通过Uploader上传等等。另外，如果你不想下载PicGo的electron版本，也可以通过npm安装picgo来实现命令行一键上传图片的快速体验。PicGo除了PicGo-Core提供的核心功能之外，额外给GUI插件给予一些自主控制权。比如插件可以拥有自己的菜单项：
+Input一般是文件路径，经过Transformer读取信息，传入Uploader进行上传，最后通过 Output 输出结果。而插件可以接入三个生命周期（beforeTransform、beforeUpload、afterUpload）以及两种部件（Transformer和Uploader）。换句话说，如果你书写了合适的Uploader，那么可以上传到不同的图床。如果你书写了合适的Transformer，你可以通过URL先行下载文件再通过Uploader上传等等。另外，如果你不想下载PicGo的electron版本，也可以通过npm安装picgo来实现命令行一键上传图片的快速体验。PicGo除了PicGo-Core提供的核心功能之外，额外给GUI插件给予一些自主控制权。比如插件可以拥有自己的菜单项：&lt;/p&gt;
+&lt;h3 id=&#34;method2&#34;&gt;method2&lt;/h3&gt;
+&lt;p&gt;methodmethod methodmethodmethod
+Input一般是文件路径，经过Transformer读取信息，传入Uploader进行上传，最后通过 Output 输出结果。而插件可以接入三个生命周期（beforeTransform、beforeUpload、afterUpload）以及两种部件（Transformer和Uploader）。换句话说，如果你书写了合适的Uploader，那么可以上传到不同的图床。如果你书写了合适的Transformer，你可以通过URL先行下载文件再通过Uploader上传等等。另外，如果你不想下载PicGo的electron版本，也可以通过npm安装picgo来实现命令行一键上传图片的快速体验。PicGo除了PicGo-Core提供的核心功能之外，额外给GUI插件给予一些自主控制权。比如插件可以拥有自己的菜单项：
+Input一般是文件路径，经过Transformer读取信息，传入Uploader进行上传，最后通过 Output 输出结果。而插件可以接入三个生命周期（beforeTransform、beforeUpload、afterUpload）以及两种部件（Transformer和Uploader）。换句话说，如果你书写了合适的Uploader，那么可以上传到不同的图床。如果你书写了合适的Transformer，你可以通过URL先行下载文件再通过Uploader上传等等。另外，如果你不想下载PicGo的electron版本，也可以通过npm安装picgo来实现命令行一键上传图片的快速体验。PicGo除了PicGo-Core提供的核心功能之外，额外给GUI插件给予一些自主控制权。比如插件可以拥有自己的菜单项：
+Input一般是文件路径，经过Transformer读取信息，传入Uploader进行上传，最后通过 Output 输出结果。而插件可以接入三个生命周期（beforeTransform、beforeUpload、afterUpload）以及两种部件（Transformer和Uploader）。换句话说，如果你书写了合适的Uploader，那么可以上传到不同的图床。如果你书写了合适的Transformer，你可以通过URL先行下载文件再通过Uploader上传等等。另外，如果你不想下载PicGo的electron版本，也可以通过npm安装picgo来实现命令行一键上传图片的快速体验。PicGo除了PicGo-Core提供的核心功能之外，额外给GUI插件给予一些自主控制权。比如插件可以拥有自己的菜单项：&lt;/p&gt;
+- http://example.org/posts/new-test/ - This is a customized copyright.</description>
+        </item>
+    
+    
+  </channel>
+</rss> 
